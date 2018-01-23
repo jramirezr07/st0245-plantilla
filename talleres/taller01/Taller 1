@@ -1,0 +1,169 @@
+//Julieta Ramírez Rossi
+package taller1;
+
+import java.util.Scanner;
+
+public class Taller1 {
+    public static void main(String[] args) {
+        
+        System.out.println("Punto 1: ");
+        
+        //el contador va hasta <10 el resultado siempre va a ser el mismo...
+        Counter counter = new Counter();
+        counter.increment();
+        
+        //Desarrollo del 2do punto
+        System.out.println();
+        System.out.println("Punto 2: ");
+        
+        DPoint point = new DPoint();
+        
+        System.out.println("The radio is:");
+        point.radio(10,20); // debe dar 22.36
+        
+        System.out.println("The corresponding angle is: ");
+        point.angle(10,20); //debe dar 1.1071
+        
+        System.out.println("The euclidean distance between the points is: ");
+        point.euclideanD(10,20); //22.36
+        
+        
+        //Desarrollo del 3r punto
+        
+        int day;
+        int month;
+        int year;
+                
+        System.out.println();
+        System.out.println("Punto 3: ");
+         
+        System.out.println();
+        System.out.println("Ingrese un día");
+        
+        Scanner consola = new Scanner(System.in);    
+        day = consola.nextInt();
+        
+        System.out.println();
+        System.out.println("Ingrese el numero del mes deseado");
+        month = consola.nextInt();
+         
+        System.out.println();
+        System.out.println("Ingrese el año");
+        year = consola.nextInt();
+        
+        Date date = new Date(Date.getDay(),Date.getMonth(),Date.getYear());  
+        date.compare(day, month, year);   
+    } 
+}
+
+public class Counter {
+
+    public void increment (){
+        
+        int numb = 10;
+        int tally = 0;
+        
+        for (int i = 1; i < numb; i++){
+            tally++;  
+        }
+
+        System.out.println(tally);
+    } 
+}
+
+
+public class DPoint {
+
+    public int x,y;
+
+    public int punto1 = 0;
+    public int punto2 = 0;
+    
+    public void Dpoint(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    
+    void radio(int x, int y) {
+     System.out.println((Double)Math.sqrt(Math.pow(x , 2)+ Math.pow(y, 2)));
+    }
+
+    void angle(int x, int y) {
+        System.out.println((Double)Math.atan2(y,x));
+    }
+
+    void euclideanD(int x, int y) {
+        System.out.println((Double)Math.abs(Math.sqrt(Math.pow(punto1 
+        - x , 2) + Math.pow(punto2 - y , 2))));
+    }
+    
+}
+
+public class Date {
+    
+    private static int day = 2;
+    private static int month = 3;
+    private static int year = 2004;
+
+    public static int getDay() {
+        return day; 
+    }
+
+    public void setDay(int day) {
+        Date.day = day;
+    } 
+
+    public static int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        Date.month = month;
+    }
+
+    public static int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        Date.year = year;
+    }
+    
+    public Date(int day, int month, int year){
+    Date.day = day;
+    Date.month = month; 
+    Date.year = year;
+        
+    }
+    
+    public void compare (int day, int month, int year ){
+        
+        if(Date.getYear()!= year){ 
+            if(Date.getYear() > year){ 
+                System.out.println("El 02/03/2004 esta antes de la fecha ingresada-");
+            }
+  
+            else if (Date.getYear() < year){
+                System.out.println("El 02/03/2004 esta despúes de la fecha ingresada--");
+            } 
+        }
+        else if(Date.getMonth()!= month){
+        if(Date.getMonth() > month){
+            System.out.println("El 02/03/2004 esta antes que la fecha ingresada---");
+        }
+ 
+        else if (Date.getMonth()< month){
+                System.out.println("El 02/03/2004 esta despúes de la fecha ingresada----");
+            }  
+        }
+        else if(Date.getDay()!= day){
+        if(Date.getDay() > day){
+            System.out.println("La fecha ingresada esta antes del 02/03/2004-----");
+        }
+ 
+        else if (Date.getDay() < day){ 
+                System.out.println("La fecha ingresada esta despúes del 02/03/2004------");
+               }  
+            }
+    }
+}
